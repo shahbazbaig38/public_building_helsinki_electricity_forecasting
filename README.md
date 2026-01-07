@@ -24,3 +24,6 @@ Data has been processed with the data_processing.py pipeline. Raw json file was 
 Then lagged features (3 lags) are created. Lag features play a crucial role in forecasting where there is a schedule. This is a school building, so it follows a schedule.
 
 Processed data has been stored as csv file in data/processed directory and we are going to use this data for modeling and forecasting.
+
+### Model Training 
+
