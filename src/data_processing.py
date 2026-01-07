@@ -64,7 +64,7 @@ def create_features(df):
 
 
     # Lag features
-    for lag in range(1, 25):
+    for lag in range(1, 4):
         df[f'lag_{lag}'] = df['value'].shift(lag)
 
     # drop time-based features after encoding

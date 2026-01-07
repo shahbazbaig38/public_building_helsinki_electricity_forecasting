@@ -21,6 +21,6 @@ Data is in json format and has following metadata:
 
 Data has been processed with the data_processing.py pipeline. Raw json file was loaded and timestamp column was set as index and then time-based features are constructed. With time-based features; cyclic features are constructed and redundant features were dropped. 
 
-Then lagged features (24 lags) are created. Lag features play a crucial role in forecasting where there is a schedule. This is a school building, so it follows a schedule.
+Then lagged features (3 lags) are created. Lag features play a crucial role in forecasting where there is a schedule. This is a school building, so it follows a schedule.
 
 Processed data has been stored as csv file in data/processed directory and we are going to use this data for modeling and forecasting.
