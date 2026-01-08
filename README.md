@@ -47,7 +47,6 @@ uvicorn api.main:app --reload
 ```
 The API will be available at http://127.0.0.1:8000.
 
-**Remember that user needs to run training.py first to use fastAPI and streamlit.**
 
 ### UI
 
