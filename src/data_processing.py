@@ -68,7 +68,7 @@ def create_features(df):
         df[f'lag_{lag}'] = df['value'].shift(lag)
 
     # drop time-based features after encoding
-    df.drop(columns=['hour', 'day_of_week', 'month', 'day_of_month'], inplace=True)
+    df.drop(columns=['hour', 'day_of_week', 'month', 'day_of_month', 'reportingGroup', 'locationName', 'unit'], inplace=True)
 
     # Drop rows with NaN values created by lag features
     df.dropna(inplace=True)
@@ -90,6 +90,18 @@ def prepare_energy_data(file_path):
     df = process_energy_data(df)
     df = create_features(df)
     return df
+
+def load_processed_energy_data(file_path='data/processed/energy_data_processed.csv'):
+    """
+    Load the processed energy data from a CSV file.
+
+    Parameters:
+    file_path (str): The path to the processed CSV file.
+
+    Returns:
+    pd.DataFrame: The processed energy data DataFrame.
+    """
+    return pd.read_csv(file_path, index_col='timestamp', parse_dates=True)
 
 # usage with try-except block
 if __name__ == "__main__":

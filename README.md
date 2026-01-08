@@ -25,5 +25,37 @@ Then lagged features (3 lags) are created. Lag features play a crucial role in f
 
 Processed data has been stored as csv file in data/processed directory and we are going to use this data for modeling and forecasting.
 
-### Model Training 
+### Model Training
+
+The model training is handled by src/training.py. It uses RandomForestRegressor with GridSearchCV for hyperparameter tuning. The data is split time-based, with 2024 data as the test set. MLflow is used for experiment tracking, logging parameters, and the trained model.
+
+### Model Evaluation
+
+Model evaluation is performed by src/evaluation.py. It loads the trained model from MLflow, makes predictions on the test set, calculates MSE and R2 metrics, and logs them back to MLflow.
+
+### API
+
+A FastAPI application is available in api/main.py to serve predictions. It exposes a /predict endpoint that accepts feature inputs and returns electricity consumption predictions using the trained model loaded from MLflow.
+
+To run the API:
+```
+uvicorn api.main:app --reload
+```
+The API will be available at http://127.0.0.1:8000.
+
+### UI
+
+A Streamlit UI is provided in ui/app.py for interactive predictions and evaluation display. It allows users to input features, call the FastAPI for predictions, and view model evaluation results.
+
+To run the UI:
+```
+streamlit run ui/app.py
+```
+
+### Requirements
+
+Install dependencies:
+```
+pip install -r requirements.txt
+```
 
