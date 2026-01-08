@@ -29,6 +29,10 @@ Processed data has been stored as csv file in data/processed directory and we ar
 
 The model training is handled by src/training.py. It uses RandomForestRegressor with GridSearchCV for hyperparameter tuning. The data is split time-based, with 2024 data as the test set. MLflow is used for experiment tracking, logging parameters, and the trained model.
 
+User needs to run python src/training.py to initiate MLflow and train the model and save it using MLflow. It will create a folder named "mlruns".
+
+User can see MLflow using command "mlflow ui".
+
 ### Model Evaluation
 
 Model evaluation is performed by src/evaluation.py. It loads the trained model from MLflow, makes predictions on the test set, calculates MSE and R2 metrics, and logs them back to MLflow.
